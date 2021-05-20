@@ -5,8 +5,24 @@
     <title>OMDb API</title>
     <link rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
+
   </head>
   <body>
+
+    <textarea class="form-control" id="editor" rows="4"></textarea>
+    <div id="preview"></div>
+
+    <select class="select2" name="country">
+      <option value="AL">Alabama</option>
+      <option value="WY">Wyoming</option>
+      <option value="WY">Lapa</option>
+      <option value="WY">Rj</option>
+      <option value="WY">Vix</option>
+      <option value="WY">Sp</option>
+    </select>
+
     <div class="container text-center">
       <form class="form-inline" id="search-form">
         <input type="text" class="form-control" placeholder="Find movie" id="search-input">

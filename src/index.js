@@ -1,27 +1,12 @@
-const list = document.querySelector('#results');
-
-const insertMovies = (data) => {
-  data.Search.forEach((result) => {
-    const movieTag = `<li>
-      <img src="${result.Poster}" alt="" />
-      <p>${result.Title}</p>
-    </li>`;
-    list.insertAdjacentHTML('beforeend', movieTag);
-  });
-};
-
-const fetchMovies = (query) => {
-  fetch(`http://www.omdbapi.com/?s=${query}&apikey=9e0e6785`)
-    .then(response => response.json())
-    .then(insertMovies);
-};
+import { fetchMovies, updateList } from "./movie";
+import { initSortable } from "./plugins/init_sortable";
+import { initMarkdown } from "./plugins/init_markdown";
+import { initSelect2 } from "./plugins/init_select2";
 
 fetchMovies('harry potter'); // on 1st page load
+initSortable();
+initMarkdown();
+initSelect2();
 
 const form = document.querySelector('#search-form');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  list.innerHTML = '';
-  const input = document.querySelector('#search-input');
-  fetchMovies(input.value);
-});
+form.addEventListener('submit', updateList);
